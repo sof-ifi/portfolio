@@ -148,14 +148,14 @@
       </div>
       <div class="preview-area">
         <div class="preview-layer">
-          <img id="background-img" src="/static/images/preview/Simple.png" alt="Background">
+          <img id="background-img" src="../static/images/preview/Simple.png" alt="Background">
           <img id="monsters-img" class="char-img" src="" style="display: none;">
           <img id="people-img" class="char-img" src="" style="display: none;">
           <img id="animals-img" class="char-img" src="" style="display: none;">
           <img id="people-count-img" class="counter-img" src="" style="display: none;">
           <img id="animals-count-img" class="counter-img" src="" style="display: none;">
           <img id="monsters-count-img" class="counter-img" src="" style="display: none;">
-          <img id="placeholder-img" src="/static/images/preview/add-characters.png" alt="Placeholder">
+          <img id="placeholder-img" src="../static/images/preview/add-characters.png" alt="Placeholder">
         </div>
       </div>
 
@@ -195,7 +195,7 @@
     monsters: 1
   };
 
-  // Показывать/скрывать счётчики при выборе чекбоксов
+  
   document.querySelectorAll('.character-type').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
       const type = this.dataset.type;
@@ -252,7 +252,7 @@
     // Фон
     const bgVal = parseInt(document.getElementById('background').value);
     const bgNames = ["Monochrome", "Simple", "Detailed"];
-    document.getElementById("background-img").src = `/static/images/preview/${bgNames[bgVal]}.png`;
+    document.getElementById("background-img").src = `../static/images/preview/${bgNames[bgVal]}.png`;
 
     types.forEach(type => {
       const checkbox = document.querySelector(`.character-type[data-type="${type}"]`);
@@ -260,7 +260,7 @@
 
       if (checkbox.checked) {
         anyCharacterSelected = true;
-        img.src = `/static/images/preview/${type}.png`;
+        img.src = `../static/images/preview/${type}.png`;
         img.style.display = "block";
       } else {
         img.style.display = "none";
@@ -280,7 +280,7 @@
 
       if (checkbox.checked) {
         const count = counts[type];
-        counterImg.src = `/static/images/counters/${type}/${count}.png`;
+        counterImg.src = `../static/images/counters/${type}/${count}.png`;
         counterImg.style.display = "block";
       } else {
         counterImg.style.display = "none";
