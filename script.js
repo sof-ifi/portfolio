@@ -1,14 +1,16 @@
-let prices = {};
 
-fetch('/static/data/prices.json')
-  .then(response => response.json())
-  .then(data => {
-    prices = data;
-  })
-  .catch(error => console.error("Error loading price data:", error));
+  const prices = {
+    people: 1,
+    animals: 0.75,
+    monsters: 1.75
+  };
 
+  const counts = {
+    people: 1,
+    animals: 1,
+    monsters: 1
+  };
 
-  
   document.querySelectorAll('.character-type').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
       const type = this.dataset.type;
@@ -19,22 +21,6 @@ fetch('/static/data/prices.json')
       updateCounter();
     });
   });
-
-  fetch('/static/data/gallery.json')
-  .then(response => response.json())
-  .then(data => {
-    const gallery = document.getElementById('gallery');
-    gallery.innerHTML = ''; // очистить на случай перезапуска
-
-    data.images.forEach((src, index) => {
-      const div = document.createElement('div');
-      div.classList.add('carousel-item');
-      if (index === 0) div.classList.add('active');
-      div.innerHTML = `<img src="${src}" class="d-block mx-auto" alt="Artwork ${index+1}">`;
-      gallery.appendChild(div);
-    });
-  })
-  .catch(error => console.error("Error loading gallery:", error));
 
 
   function updateQty(type, delta) {
