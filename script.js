@@ -110,7 +110,7 @@ fetch('/static/data/prices.json')
 
       if (checkbox.checked) {
         const count = counts[type];
-        counterImg.src = `../static/images/counters/${type}/${count}.png`;
+        counterImg.src = `./static/images/counters/${type}/${count}.png`;
         counterImg.style.display = "block";
       } else {
         counterImg.style.display = "none";
