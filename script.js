@@ -1,4 +1,3 @@
-
 let prices = {};
 
 fetch('/static/data/prices.json')
@@ -83,7 +82,7 @@ fetch('/static/data/prices.json')
     // Фон
     const bgVal = parseInt(document.getElementById('background').value);
     const bgNames = ["Monochrome", "Simple", "Detailed"];
-    document.getElementById("background-img").src = `../static/images/preview/${bgNames[bgVal]}.png`;
+    document.getElementById("background-img").src = `./static/images/preview/${bgNames[bgVal]}.png`;
 
     types.forEach(type => {
       const checkbox = document.querySelector(`.character-type[data-type="${type}"]`);
@@ -91,7 +90,7 @@ fetch('/static/data/prices.json')
 
       if (checkbox.checked) {
         anyCharacterSelected = true;
-        img.src = `../static/images/preview/${type}.png`;
+        img.src = `./static/images/preview/${type}.png`;
         img.style.display = "block";
       } else {
         img.style.display = "none";
