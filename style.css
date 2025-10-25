@@ -25,7 +25,8 @@ img {
 
 }
 .container {
-  width: 1400px;
+  width: 90%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 header {
@@ -82,6 +83,12 @@ header nav ul li.btn a {
 }
 header nav ul li.btn a:hover {
   background: #fcad7b;
+}
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 .hero {
   margin-top: 130px;
@@ -391,4 +398,90 @@ input[type=range]::-webkit-slider-thumb {
   color: #303C6C;
   text-decoration: none;
   font-weight: 500;
+}
+
+/* 📱 Small devices (phones) */
+@media (max-width: 768px) {
+
+  header nav {
+    float: none;
+    width: 100%;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 100px;
+  }
+
+  .hero img {
+    position: static;
+    width: 90%;
+    margin-top: 30px;
+  }
+
+  .about-me .info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-me p {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .carousel img {
+    height: 250px;
+  }
+
+  .calculator .calc--info {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .calculator .calc--info .preview-area {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .info-cont p {
+    width: 100%;
+  }
+
+  .blocK {
+    flex-direction: column;
+  }
+
+  .links {
+    align-items: flex-start;
+  }
+}
+
+/* 📱 Extra small screens */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .hero--info h1 {
+    font-size: 24px;
+  }
+
+  .calculator h2 {
+    font-size: 28px;
+  }
+
+  button {
+    font-size: 14px;
+  }
 }
