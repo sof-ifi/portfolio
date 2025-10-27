@@ -15,13 +15,18 @@
     <header>
       <div class="container">
         <span class="logo">sofifi</span>
-        <nav> 
+        <div class="burger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav id="nav"> 
           <ul>
-            <li class="active"><a href="#home">Home</a></li>
-            <li><a href="#about-me">About me</a></li>
-            <li><a href="#my-works">My works</a></li>
-            <li><a href="#calculator">Price Calculator</a></li>
-            <li class="btn"><a href="#contact">Contacts</a></li>
+            <li class="active"><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about-me" onclick="closeMenu()">About me</a></li>
+            <li><a href="#my-works" onclick="closeMenu()">My works</a></li>
+            <li><a href="#calculator" onclick="closeMenu()">Price Calculator</a></li>
+            <li class="btn"><a href="#contact" onclick="closeMenu()">Contacts</a></li>
           </ul>
         </nav>
       </div>
@@ -31,7 +36,7 @@
     <div class="hero--info">
       <h2>Illustrations • Visual Art</h2>
       <h1>Welcome to my creative space, where I share my works, ideas & more.</h1>
-      <p>Here you’ll find illustrations, where I explore emotion and storytelling — creating quiet, magical worlds for others to step into.</p>
+      <p>Here you'll find illustrations, where I explore emotion and storytelling — creating quiet, magical worlds for others to step into.</p>
       <li class="btn"><a href="#contact" style="color: #FBE8A6;">Get more details</a></li>
     </div>
     <img src="./static/images/Portfolio.png" alt="">
@@ -44,7 +49,7 @@
     <h2>About me</h2>
     <div class="info">
       <div class="text">
-              <p>    I’m Sofifi, an illustrator from _____.
+              <p>    I'm Sofifi, an illustrator from _____.
         Through my work, I explore emotion and storytelling — creating quiet, magical worlds where reality blends with fantasy. My art speaks through light, color, and texture, giving shape to feelings like wonder, fear, hope, and gentle sadness.
 
         I draw inspiration from nature, music, and my inner world. While I work digitally (mostly in Procreate), I aim for a soft, hand-painted feel. I love telling stories in a single frame — with expressive characters, rich details, and a sense of mystery.
@@ -167,7 +172,7 @@
       <h3>Contacts</h3>
       <div class="blocK">
         <p>
-          I'm open to collaborations, commissions, and creative opportunities. If you have any questions or just want to say hello, feel free to reach out at random123@xxxx.com. I’d love to hear from you!
+          I'm open to collaborations, commissions, and creative opportunities. If you have any questions or just want to say hello, feel free to reach out at random123@xxxx.com. I'd love to hear from you!
         </p>
 
         <div class="links">
@@ -183,6 +188,20 @@
 </body>
 
 <script src="./script.js"></script>
-
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav');
+    const burger = document.querySelector('.burger');
+    nav.classList.toggle('active');
+    burger.classList.toggle('active');
+  }
+  
+  function closeMenu() {
+    const nav = document.getElementById('nav');
+    const burger = document.querySelector('.burger');
+    nav.classList.remove('active');
+    burger.classList.remove('active');
+  }
+</script>
 
 </html>
