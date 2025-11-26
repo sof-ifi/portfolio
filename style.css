@@ -460,7 +460,7 @@ input[type=range]::-webkit-slider-thumb {
   
   .hero img {
     width: 45%;
-    top: 20px;
+    top: -200px;
   }
   
   .hero--info h1 {
@@ -490,21 +490,8 @@ input[type=range]::-webkit-slider-thumb {
   .carousel img {
     height: 400px;
   }
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-  background-color:#F4976C; 
-  border: 2px solid #e48051;             
-  padding: 50px;
-  flex-direction: column;
-  size: 20px;
-  align-items: center;
-  border-radius: 50%;
-  background-size: 60% 60%; 
-  transition: all 500ms ease;
-  padding: 0, 20px;
-  }
   .calculator {
-    padding: 70px 0;
+    padding-top: 20px;
     width: 80%;
   }
   .calculator .calc--info {
