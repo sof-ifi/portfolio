@@ -454,7 +454,7 @@ input[type=range]::-webkit-slider-thumb {
   }
   
   .hero {
-    margin-top: 80px;
+    margin-top: 200px;
     padding-bottom: 150px;
   }
   
@@ -485,7 +485,7 @@ input[type=range]::-webkit-slider-thumb {
   }
   
   .carousel {
-    padding-tp: 20px;
+    padding-top: 80px;
   }
   .carousel img {
     height: 400px;
@@ -494,7 +494,7 @@ input[type=range]::-webkit-slider-thumb {
   .carousel-control-next-icon {
   background-color:#F4976C; 
   border: 2px solid #e48051;             
-  padding: 10px;
+  padding: 50px;
   align-items: center;
   border-radius: 50%;
   background-size: 60% 60%; 
@@ -502,7 +502,9 @@ input[type=range]::-webkit-slider-thumb {
   padding: 0, 20px;
   }
   .calculator {
-    padding: 20px, 0;
+    margin-top: 80px;
+    width: 80%;
+    margin-bottom: 80px;
   }
   .calculator .calc--info {
     flex-direction: column;
