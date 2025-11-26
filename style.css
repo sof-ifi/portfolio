@@ -460,7 +460,7 @@ input[type=range]::-webkit-slider-thumb {
   
   .hero img {
     width: 45%;
-    top: -200px;
+    top: -180px;
   }
   
   .hero--info h1 {
@@ -484,19 +484,19 @@ input[type=range]::-webkit-slider-thumb {
     margin: 20px 10px;
   }
   .carousel {
-    padding: 20px 10px;
+    padding: 20px 20px;
     position: relative;
   }
   .carousel img {
     height: 400px;
   }
   .calculator {
-    padding: 20px 0px;
-    width: 80%;
+    padding: 20px 20px;
     margin-bottom: 20px;
   }
   .calculator .calc--info {
     flex-direction: column;
+    padding: 0px 20px;
   }
   .info-cont p {
     width: 60%;
