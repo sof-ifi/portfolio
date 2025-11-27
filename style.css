@@ -250,10 +250,10 @@ header nav ul li.btn a:hover {
   transform: translateY(-50%);
 }
 .carousel-control-prev {
-  left: 20px;
+  left: 30px;
 }
 .carousel-control-next {
-  right: 20px;
+  right: 30px;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -486,6 +486,12 @@ input[type=range]::-webkit-slider-thumb {
   .carousel {
     padding: 20px 20px;
     position: relative;
+  }
+  .carousel-control-prev {
+    left: 30px;
+  }
+  .carousel-control-next {
+    right: 30px;
   }
   .carousel img {
     height: 400px;
