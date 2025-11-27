@@ -484,6 +484,7 @@ input[type=range]::-webkit-slider-thumb {
     margin: 20px 10px;
   }
   .carousel {
+    width: 90%;
     padding: 20px 20px;
     position: relative;
   }
@@ -497,6 +498,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 400px;
   }
   .calculator {
+    width: 90%
     padding: 20px 20px;
     margin-bottom: 20px;
   }
@@ -506,7 +508,7 @@ input[type=range]::-webkit-slider-thumb {
   }
   .info-cont p {
     width: 60%;
-    padding-top: 20px;
+    padding: 20px 0;
   }
 }
 
@@ -587,8 +589,8 @@ input[type=range]::-webkit-slider-thumb {
   
   .about-me .info > img {
     order: -1;
-    width: 100%;
-    object-fit: cover;
+    height: 400px;
+    object-fit: none;
   }
   
   .about-me p {
