@@ -441,7 +441,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .links a {
-  color: #303C6C;
+  color: #FBE8A6;
   text-decoration: none;
   font-weight: 500;
 }
@@ -581,7 +581,6 @@ input[type=range]::-webkit-slider-thumb {
   
   .about-me .info > img {
     order: -1;
-    height: 300px;
     width: 100%;
     object-fit: cover;
   }
