@@ -220,7 +220,6 @@ header nav ul li.btn a:hover {
   border: 2px solid #303C6C;
   border-radius: 50px;
   background-color: #B4DFE5;
-  position: relative;
 }
 .carousel img {
   height: 500px;
@@ -251,16 +250,17 @@ header nav ul li.btn a:hover {
   transform: translateY(-50%);
 }
 .carousel-control-prev {
-  left: 20px;
+  left: 30px;
 }
 .carousel-control-next {
-  right: 20px;
+  right: 30px;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color:#F4976C; 
   border: 2px solid #e48051;             
-  padding: 10px;          
+
+  align-items: center;
   border-radius: 50%;
   background-size: 60% 60%; 
   transition: all 500ms ease;
@@ -441,7 +441,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .links a {
-  color: #303C6C;
+  color: #FBE8A6;
   text-decoration: none;
   font-weight: 500;
 }
@@ -454,49 +454,59 @@ input[type=range]::-webkit-slider-thumb {
   }
   
   .hero {
-    margin-top: 80px;
+    margin-top: 120px;
     padding-bottom: 150px;
   }
   
   .hero img {
     width: 45%;
-    top: -100px;
+    top: -180px;
   }
   
   .hero--info h1 {
     font-size: 32px;
   }
-  
+  .about-me {
+    padding-top: 20px;
+  }
   .about-me .info {
     flex-direction: column;
     align-items: center;
   }
   
   .about-me .info > img {
+    order: -1;
     height: 400px;
     margin-top: 20px;
   }
   
   .about-me .text img {
     position: static;
-    margin: 20px 0;
+    margin: 20px 10px;
   }
-  
+  .carousel {
+    padding: 20px 20px;
+    position: relative;
+  }
   .carousel img {
     height: 400px;
   }
-  
+  .calculator {
+    width: 90%
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;    
+  }
   .calculator .calc--info {
     flex-direction: column;
+    padding: 0px 20px;
   }
-  
-  .calculator .calc--info .preview-area {
-    max-width: 500px;
-    margin: 30px 0;
+  .contact {
+    margin-top: 20px;
   }
-  
   .info-cont p {
     width: 60%;
+    padding: 20px 0;
   }
 }
 
@@ -543,12 +553,13 @@ input[type=range]::-webkit-slider-thumb {
     position: static;
     width: 100%;
     order: -1;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   
   .hero--info {
     width: 100%;
     padding-top: 20px;
+    margin-bottom: 20px;
   }
   
   .hero--info h1 {
@@ -577,9 +588,8 @@ input[type=range]::-webkit-slider-thumb {
   
   .about-me .info > img {
     order: -1;
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
+    height: 400px;
+    object-fit: fill;
   }
   
   .about-me p {
@@ -606,11 +616,11 @@ input[type=range]::-webkit-slider-thumb {
   
   .carousel-control-prev,
   .carousel-control-next {
-    top: 50%;
+    top: 60%;
   }
   
   .calculator {
-    padding: 40px 0;
+    padding: 40px 20px;
   }
   
   .calculator h2 {
@@ -667,7 +677,10 @@ input[type=range]::-webkit-slider-thumb {
   .calculator .section button {
     width: 100%;
   }
-  
+  .info-cont {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
   .info-cont h3 {
     font-size: 28px;
   }
