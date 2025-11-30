@@ -63,7 +63,7 @@ header .logo {
   width: 25px;
   height: 3px;
   background: #303C6C;
-  margin: 3px 0;
+  margin: 2px 0;
   transition: 0.3s;
 }
 .burger.active span:nth-child(1) {
@@ -230,24 +230,11 @@ header nav ul li.btn a:hover {
   font-weight: 800;
   font-size: 40px;
 }
-.carousel .see {
-  color: #FBE8A6;
-  background: #F4976C;
-  border-radius: 5px;
-  padding: 10px 18px;
-  float: right;
-  display: block;
-  transition: all 500ms ease;
-}
-.carousel .see:hover {
-  transform: scale(1.1);
-}
 .carousel-control-prev,
 .carousel-control-next {
   width: auto;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 57%;
 }
 .carousel-control-prev {
   left: 30px;
@@ -616,7 +603,7 @@ input[type=range]::-webkit-slider-thumb {
   
   .carousel-control-prev,
   .carousel-control-next {
-    top: 60%;
+    top: 56%;
   }
   
   .calculator {
@@ -677,7 +664,7 @@ input[type=range]::-webkit-slider-thumb {
   .calculator .section button {
     width: 100%;
   }
-  .info-cont {
+  .contact {
     margin-bottom: 20px;
     margin-top: 20px;
   }
