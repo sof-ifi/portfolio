@@ -234,7 +234,7 @@ header nav ul li.btn a:hover {
 .carousel-control-next {
   width: auto;
   position: absolute;
-  top: 57%;
+  top: 49%;
 }
 .carousel-control-prev {
   left: 30px;
@@ -246,7 +246,6 @@ header nav ul li.btn a:hover {
 .carousel-control-next-icon {
   background-color:#F4976C; 
   border: 2px solid #e48051;             
-
   align-items: center;
   border-radius: 50%;
   background-size: 60% 60%; 
@@ -603,7 +602,7 @@ input[type=range]::-webkit-slider-thumb {
   
   .carousel-control-prev,
   .carousel-control-next {
-    top: 56%;
+    top: 49%;
   }
   
   .calculator {
