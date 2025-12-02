@@ -233,8 +233,8 @@ header nav ul li.btn a:hover {
 .carousel-control-prev,
 .carousel-control-next {
   width: auto;
-  position: absolute;
-  top: 49%;
+  position: relative;
+  top: 50%;
 }
 .carousel-control-prev {
   left: 30px;
@@ -492,7 +492,6 @@ input[type=range]::-webkit-slider-thumb {
   }
   .info-cont p {
     width: 60%;
-    padding: 20px 0;
   }
 }
 
