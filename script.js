@@ -11,6 +11,20 @@
     monsters: 1
   };
 
+  function toggleMenu() {
+    const nav = document.getElementById('nav');
+    const burger = document.querySelector('.burger');
+    nav.classList.toggle('active');
+    burger.classList.toggle('active');
+  }
+  
+  function closeMenu() {
+    const nav = document.getElementById('nav');
+    const burger = document.querySelector('.burger');
+    nav.classList.remove('active');
+    burger.classList.remove('active');
+  }
+
   document.querySelectorAll('.character-type').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
       const type = this.dataset.type;
