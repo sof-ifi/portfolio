@@ -233,7 +233,7 @@ header nav ul li.btn a:hover {
 .carousel-control-prev,
 .carousel-control-next {
   width: auto;
-  position: relative;
+  position: absolute;
   top: 50%;
 }
 .carousel-control-prev {
@@ -601,7 +601,8 @@ input[type=range]::-webkit-slider-thumb {
   
   .carousel-control-prev,
   .carousel-control-next {
-    top: 49%;
+    position: absolute;
+    margin-top: 45%;
   }
   
   .calculator {
@@ -663,7 +664,6 @@ input[type=range]::-webkit-slider-thumb {
     width: 100%;
   }
   .contact {
-    margin-bottom: 20px;
     margin-top: 20px;
   }
   .info-cont h3 {
@@ -677,6 +677,7 @@ input[type=range]::-webkit-slider-thumb {
   .blocK {
     flex-direction: column;
     gap: 20px;
+    padding-bottom: 20px;
   }
   
   span,
