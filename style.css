@@ -234,7 +234,7 @@ header nav ul li.btn a:hover {
 .carousel-control-next {
   width: auto;
   position: absolute;
-  top: 50%;
+  carousel-inner: center;
 }
 .carousel-control-prev {
   left: 30px;
@@ -493,6 +493,10 @@ input[type=range]::-webkit-slider-thumb {
   .info-cont p {
     width: 60%;
   }
+  .blocK {
+    padding-top: 20px
+    padding-bottom: 20px;
+  }
 }
 
 /* Mobile Styles */
@@ -678,6 +682,7 @@ input[type=range]::-webkit-slider-thumb {
     flex-direction: column;
     gap: 20px;
     padding-bottom: 20px;
+    padding-top: 20px;
   }
   
   span,
