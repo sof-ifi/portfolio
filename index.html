@@ -10,7 +10,26 @@
   <script src="./script.js"></script>
   <title>Portfolio</title>
 </head>
+<script>
+// Секретная комбинация: нажмите 3 раза на логотип
+let clickCount = 0;
+let timer = null;
 
+document.querySelector('.logo').addEventListener('click', function() {
+  clickCount++;
+  
+  if (timer) clearTimeout(timer);
+  
+  if (clickCount === 3) {
+    window.location.href = 'admin.html';
+  }
+  
+  // Сброс через 2 секунды
+  timer = setTimeout(() => {
+    clickCount = 0;
+  }, 2000);
+});
+</script>
 <body>
   <div id="home" class="wrapper">
     <header>
