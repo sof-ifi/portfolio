@@ -1,16 +1,61 @@
-
-  const prices = {
-    people: 1,
-    animals: 0.75,
-    monsters: 1.75
+// Load configuration from localStorage or use defaults
+function loadConfig() {
+  const saved = localStorage.getItem('portfolioConfig');
+  if (saved) {
+    return JSON.parse(saved);
+  }
+  // Default configuration
+  return {
+    prices: {
+      people: 1,
+      animals: 0.75,
+      monsters: 1.75,
+      backgrounds: [0, 1, 5],
+      speed: {
+        normal: 1,
+        fast: 5
+      }
+    },
+    gallery: []
   };
+}
 
-  const counts = {
-    people: 1,
-    animals: 1,
-    monsters: 1
-  };
+// Load config on startup
+const config = loadConfig();
+const prices = {
+  people: config.prices.people,
+  animals: config.prices.animals,
+  monsters: config.prices.monsters
+};
 
+const counts = {
+  people: 1,
+  animals: 1,
+  monsters: 1
+};
+
+// Initialize gallery from config
+window.addEventListener('DOMContentLoaded', () => {
+  loadGalleryFromConfig();
+});
+
+function loadGalleryFromConfig() {
+  if (!config.gallery || config.gallery.length === 0) return;
+  
+  const carouselInner = document.querySelector('.carousel-inner');
+  if (!carouselInner) return;
+  
+  // Clear existing items
+  carouselInner.innerHTML = '';
+  
+  // Add images from config
+  config.gallery.forEach((img, index) => {
+    const item = document.createElement('div');
+    item.className = `carousel-item ${index === 0 ? 'active' : ''} text-center`;
+    item.innerHTML = `<img src="${img.data}" class="mx-auto d-block" alt="${img.title}">`;
+    carouselInner.appendChild(item);
+  });
+  
   function toggleMenu() {
     const nav = document.getElementById('nav');
     const burger = document.querySelector('.burger');
