@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel - Portfolio Manager</title>
 </head>
-  
+<script>
+  // Простая защита паролем
+  window.addEventListener('DOMContentLoaded', () => {
+    const password = prompt('Enter admin password:');
+    if (password !== '000') {
+      alert('Access denied!');
+      window.location.href = 'index.html';
+    }
+  });
+</script>
 <body>
   <div class="container">
     <header>
