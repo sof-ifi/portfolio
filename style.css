@@ -51,8 +51,6 @@ header .logo {
   color:#303C6C;
   z-index: 1001;
 }
-
-/* Burger Menu */
 .burger {
   display: none;
   flex-direction: column;
