@@ -1,418 +1,639 @@
+/**
+ * Portfolio Website Styles
+ * Uses CSS custom properties for maintainability and theming
+ * Mobile-first responsive design approach
+ * 
+ * @author Sofifi
+ * @version 2.0
+ */
+
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES (Variables)
+   Centralized design tokens for easy theme modifications
+   ============================================================================= */
+:root {
+  /* Color Palette */
+  --color-primary: #303C6C;        /* Dark blue - main text and borders */
+  --color-accent: #F4976C;         /* Orange - buttons and highlights */
+  --color-accent-hover: #fcad7b;   /* Lighter orange for hover states */
+  --color-bg-primary: #FBE8A6;     /* Cream yellow - main background */
+  --color-bg-secondary: #B4DFE5;   /* Light blue - header and sections */
+  --color-bg-calculator: #a9e2e7;  /* Slightly darker blue for calculator */
+  --color-text-light: #FBE8A6;     /* Light text on dark backgrounds */
+  
+  /* Typography */
+  --font-family-base: "Poppins", sans-serif;
+  --font-size-base: 16px;
+  --font-size-h1: 40px;
+  --font-size-h2: 20px;
+  --font-size-h3: 36px;
+  --font-size-h4: 24px;
+  --font-size-section-title: 40px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 800;
+  --line-height-base: 170%;
+  
+  /* Spacing */
+  --spacing-xs: 10px;
+  --spacing-sm: 20px;
+  --spacing-md: 30px;
+  --spacing-lg: 50px;
+  --spacing-xl: 70px;
+  --spacing-section: 70px;
+  
+  /* Border Radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 30px;
+  --radius-xl: 50px;
+  
+  /* Transitions */
+  --transition-speed: 500ms;
+  --transition-fast: 300ms;
+  --transition-ease: ease;
+  
+  /* Layout */
+  --container-max-width: 1400px;
+  --container-padding: 0 20px;
+  
+  /* Z-index layers */
+  --z-header: 1000;
+  --z-nav: 1001;
+  --z-burger: 1001;
+}
+
+/* =============================================================================
+   BASE STYLES & RESETS
+   ============================================================================= */
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and border in element's total width/height */
 }
+
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
+
 body {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-normal);
   font-style: normal;
-  font-size: 16px;
-  color:#303C6C;
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  line-height: var(--line-height-base);
 }
+
+/* Remove default link underlines */
 a {
   text-decoration: none;
 }
+
+/* Responsive images by default */
 img {
   max-width: 100%;
+  height: auto;
 }
 
+/* =============================================================================
+   LAYOUT COMPONENTS
+   ============================================================================= */
+
+/* Main wrapper with background color */
 .wrapper {
-  background: #FBE8A6;
+  background: var(--color-bg-primary);
 }
+
+/* Container for content max-width */
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: var(--container-padding);
 }
+
+/* =============================================================================
+   HEADER & NAVIGATION
+   ============================================================================= */
+
 header {
   width: 100%;                  
-  background-color: #B4DFE5;    
-  position: sticky;
+  background-color: var(--color-bg-secondary);    
+  position: sticky;              /* Stays at top during scroll */
   top: 0;
   left: 0;
-  z-index: 1000;
-  padding: 20px 0;
+  z-index: var(--z-header);
+  padding: var(--spacing-sm) 0;
 }
+
 header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* Logo styling */
 header .logo {
   text-transform: uppercase;
   font-size: 18px;
-  font-weight: 800;
-  color:#303C6C;
-  z-index: 1001;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  z-index: var(--z-nav);
 }
+
+/* Burger menu for mobile (hidden by default) */
 .burger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  z-index: 1001;
+  z-index: var(--z-burger);
 }
+
 .burger span {
   width: 25px;
   height: 3px;
-  background: #303C6C;
+  background: var(--color-primary);
   margin: 2px 0;
-  transition: 0.3s;
+  transition: var(--transition-fast);
 }
+
+/* Burger animation when active (X shape) */
 .burger.active span:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
+
 .burger.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0; /* Hide middle line */
 }
+
 .burger.active span:nth-child(3) {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
+/* Navigation menu */
 header nav {
   width: auto;
 }
+
 header nav ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: var(--spacing-md);
   z-index: 2;
   position: relative;
 }
+
 header nav ul li {
   display: inline-block;
 }
+
 header nav ul li a {
-  color: #303C6C;
+  color: var(--color-primary);
+  transition: border-bottom var(--transition-fast);
 }
+
+/* Active page indicator */
 header nav ul li.active::after {
   content: '';
   display: block;
   width: 40px;
   height: 5px;
-  background: #F4976C;
-  border-radius: 10px;
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
   position: relative;
   left: -15px;
 }
 
+/* Hover effect for non-active, non-button links */
 header nav ul li:not(.active):not(.btn) a:hover {
-  border-bottom: 5px solid #F4976C;
+  border-bottom: 5px solid var(--color-accent);
 }
+
+/* Button link styling */
 header nav ul li.btn a {
-  background: #F4976C;
-  padding: 10px 18px;
-  border-radius: 5px;
-  transition: all 500ms ease;
+  background: var(--color-accent);
+  padding: var(--spacing-xs) 18px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-speed) var(--transition-ease);
 }
+
 header nav ul li.btn a:hover {
-  background: #fcad7b;
+  background: var(--color-accent-hover);
 }
+
+/* =============================================================================
+   HERO SECTION
+   ============================================================================= */
+
 .hero {
   margin-top: 130px;
   padding-bottom: 270px;
   position: relative;
   z-index: 1;
 }
+
 .hero--info {
   width: 100%;
   max-width: 530px;
-  padding-top: 70px;
+  padding-top: var(--spacing-xl);
 }
+
 .hero--info h2 {
-  color: #F4976C;
-  font-size: 20px;
-  font-weight: 600;
+  color: var(--color-accent);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
 }
+
 .hero--info h1 {
-  font-size: 40px;
-  font-weight: 800;
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
 }
+
 .hero--info p {
-  margin: 20px 0;
-  font-size: 16px;
-  line-height: 170%;
-  font-weight: 500;
+  margin: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-medium);
 }
+
+/* Call-to-action button */
 .hero--info .btn {
-  background: #F4976C;
-  color: #FBE8A6;
+  background: var(--color-accent);
+  color: var(--color-text-light);
   font-size: 18px;
-  border-radius: 50px;
-  padding: 15px 30px;
+  border-radius: var(--radius-xl);
+  padding: 15px var(--spacing-md);
   border: 0;
-  transition: all 500ms ease;
+  transition: all var(--transition-speed) var(--transition-ease);
 }
+
 .hero--info .a {
-  color: #FBE8A6;
+  color: var(--color-text-light);
 }
+
 .hero--info .btn:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.1); /* Slight grow effect on hover */
 }
+
+/* Hero image positioning */
 .hero img {
   position: absolute;
   top: -180px;
   right: -5px;
   width: 50%;
 }
+
+/* Full-width splitter images */
 .spl img {
   width: 100%;
+  display: block;
 }
+
+/* =============================================================================
+   ABOUT ME SECTION
+   ============================================================================= */
+
 .about-me {
-  padding-top: 70px;
+  padding-top: var(--spacing-xl);
 }
+
+/* Section title styling (reusable) */
+.about-me h2,
+.carousel h2,
+.calculator h2 {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-section-title);
+}
+
 .about-me h2 {
-  font-weight: 800;
-  font-size: 40px;
   margin-bottom: -20px;
 }
+
 .about-me .info {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 50px 0;
-  margin-bottom: 30px;
+  padding: var(--spacing-lg) 0;
+  margin-bottom: var(--spacing-md);
 }
+
 .text {
   align-items: center;
   display: block;
   padding: 40px 0;
   position: relative;
 }
+
 .about-me p {
   font-size: 18px;
   width: 100%;
   max-width: 700px;
 }
+
+/* Profile photo styling */
 .about-me .info > img {
   height: 550px;
-  border-radius: 50px;
-  border: 2px solid #303C6C;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-primary);
+  object-fit: cover;
 }
+
+/* Decorative pattern image */
 .about-me .text img {
   width: 100%;
   max-width: 600px;
-  border: 0px;
+  border: 0;
   height: auto;
   object-fit: contain;
   position: absolute;
-  margin-left: 50px;
+  margin-left: var(--spacing-lg);
 }
+
+/* =============================================================================
+   CAROUSEL SECTION
+   ============================================================================= */
+
 .carousel {
-  padding: 70px 0;
+  padding: var(--spacing-section) 0;
   position: relative;
 }
+
 .carousel .slide {
-  padding: 50px 0;
+  padding: var(--spacing-lg) 0;
 }
+
 .carousel .carousel-inner { 
-  border: 2px solid #303C6C;
-  border-radius: 50px;
-  background-color: #B4DFE5;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-bg-secondary);
 }
+
 .carousel img {
   height: 500px;
   object-fit: contain;
   border-radius: 12px;
 }
+
 .carousel h2 {
-  font-weight: 800;
-  font-size: 40px;
+  margin-bottom: var(--spacing-lg);
 }
+
+/* Carousel navigation buttons */
 .carousel-control-prev,
 .carousel-control-next {
   width: auto;
   position: absolute;
-  carousel-inner: center;
+  top: 50%;
 }
+
 .carousel-control-prev {
-  left: 30px;
+  left: var(--spacing-md);
 }
+
 .carousel-control-next {
-  right: 30px;
+  right: var(--spacing-md);
 }
+
+/* Custom styled carousel arrows */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color:#F4976C; 
+  background-color: var(--color-accent); 
   border: 2px solid #e48051;             
   align-items: center;
   border-radius: 50%;
   background-size: 60% 60%; 
-  transition: all 500ms ease;
+  transition: all var(--transition-speed) var(--transition-ease);
 }
-.carousel-control-next:hover .carousel-control-next-icon {
-  background-color: #F4976C; 
+
+.carousel-control-next:hover .carousel-control-next-icon,
+.carousel-control-prev:hover .carousel-control-prev-icon {
+  background-color: var(--color-accent-hover); 
 }
+
+/* =============================================================================
+   CALCULATOR SECTION
+   ============================================================================= */
+
 .calculator {
-  padding: 70px 0;
+  padding: var(--spacing-section) 0;
 }
+
 .calculator h2 {
-  font-weight: 800;
-  font-size: 40px;
-  margin-bottom: 50px;
+  margin-bottom: var(--spacing-lg);
 }
+
+/* Calculator container with two columns */
 .calculator .calc--info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #a9e2e7;
-  border-radius: 50px;
-  border: 2px solid #303C6C;
+  background-color: var(--color-bg-calculator);
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-primary);
 }
 
+/* Left column: options and controls */
 .calculator .calc--info .options {
   display: block;
   justify-content: left;
   width: 100%;
-  padding: 50px 100px;
+  padding: var(--spacing-lg) 100px;
 }
-.who h4 {
-  color: #303C6C;
-  font-size: 24px;
-  font-weight: 600;
+
+/* Section headings within calculator */
+.who h4,
+.where h4,
+.time h4 {
+  color: var(--color-primary);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
 }
+
+/* Character type options layout */
 .types {
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
   position: relative;
 }
+
 .option {
   display: flex;
   flex-direction: column;
   align-items: center; 
 }
+
 .quantity {
   margin-top: 8px;
 }
+
+/* Text styling for labels and spans */
 span,
 label {
   font-size: 20px; 
-  color: #303C6C;       
-  font-weight: 500;
+  color: var(--color-primary);       
+  font-weight: var(--font-weight-medium);
 }
+
+/* Custom checkbox and radio button colors */
 input[type="checkbox"],
 input[type="radio"] {
-  accent-color: #F4976C;
+  accent-color: var(--color-accent);
+  cursor: pointer;
 }
+
+/* Quantity adjustment buttons */
 .option .quantity button {
-  background: #F4976C;
-  border: 1px solid #303C6C;
+  background: var(--color-accent);
+  border: 1px solid var(--color-primary);
   padding: 1px 7px;
-  border-radius: 10px; 
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
 }
+
+.option .quantity button:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Background section spacing */
 .where {
-  padding-top: 50px;
+  padding-top: var(--spacing-lg);
   padding-bottom: 25px;  
 }
-.where h4 {
-  color: #303C6C;
-  font-size: 24px;
-  font-weight: 600;
-  text-transform: uppercase;  
-}
+
 .where .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .where .info input {
   width: 70%;
-  color: #303C6C;
+  color: var(--color-primary);
 }
+
+/* Custom range slider styling (Webkit browsers) */
 input[type=range]::-webkit-slider-runnable-track {
-  background: #303C6C;
+  background: var(--color-primary);
   height: 6px;
   border-radius: 3px;
   width: 70%;
-  padding: 0 10px;
+  padding: 0 var(--spacing-xs);
 }
 
 input[type=range]::-webkit-slider-thumb {
-  background: #F4976C;
-  border: 2px solid #B4DFE5;
+  background: var(--color-accent);
+  border: 2px solid var(--color-bg-secondary);
   border-radius: 50%;
   width: 18px;
   height: 18px;
   margin-top: -6px; 
   cursor: pointer;
 }
+
+/* Time section spacing */
 .time {
   padding-top: 25px;
 }
-.time h4 {
-  color: #303C6C;
-  font-size: 24px;
-  font-weight: 600;
-  text-transform: uppercase;  
-}
+
 .where .types {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+
+/* Calculate button and result section */
 .calculator .section {
   padding-top: 25px;
 }
+
 .calculator .section button {
-  background: #F4976C;
-  color: #303C6C;
-  font-size: 16px;
-  border-radius: 10px;
-  padding: 10px 25px;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) 25px;
   border: 0;
-  transition: all 500ms ease;
+  transition: all var(--transition-speed) var(--transition-ease);
+  cursor: pointer;
 }
+
+.calculator .section button:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Right column: preview area */
 .calculator .calc--info .preview-area {
   position: relative;
   width: 100%;
   max-width: 1200px;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* Square container */
   display: flex;     
-  border-radius: 50px;
-  background-color:#a9e2e7;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-bg-calculator);
 }
+
+/* Layered preview images container */
 .preview-layer {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 50px;
+  border-radius: var(--radius-xl);
 }
+
 .preview-layer img {
   position: absolute;
-  object-fit: cover;
-  pointer-events: none; 
-  border-radius: 50px;
-}
-.contact {
-  background-color: #F4976C;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Prevent interaction with preview images */
+  border-radius: var(--radius-xl);
 }
+
+/* =============================================================================
+   CONTACT SECTION
+   ============================================================================= */
+
+.contact {
+  background-color: var(--color-accent);
+  width: 100%;
+  margin-top: var(--spacing-sm);
+}
+
 .info-cont {
-  padding: 20px 0;
+  padding: var(--spacing-sm) 0;
 }
+
 .info-cont h3 {
-  font-weight: 600;
-  font-size: 36px;
-  color: #FBE8A6;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-h3);
+  color: var(--color-text-light);
 }
+
 .info-cont p {
-  color: #FBE8A6;
+  color: var(--color-text-light);
   width: 50%;
 }
+
+/* Contact links container */
 .blocK {
   display: flex;
   gap: 40px;
@@ -422,19 +643,27 @@ input[type=range]::-webkit-slider-thumb {
 .links {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .links a {
-  color: #FBE8A6;
+  color: var(--color-text-light);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
+  transition: opacity var(--transition-fast);
 }
 
-/* Tablet Styles */
+.links a:hover {
+  opacity: 0.8;
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================================================= */
 @media (max-width: 1024px) {
   .container {
     max-width: 100%;
-    padding: 0 30px;
+    padding: 0 var(--spacing-md);
   }
   
   .hero {
@@ -450,88 +679,101 @@ input[type=range]::-webkit-slider-thumb {
   .hero--info h1 {
     font-size: 32px;
   }
+  
   .about-me {
-    padding-top: 20px;
+    padding-top: var(--spacing-sm);
   }
+  
   .about-me .info {
     flex-direction: column;
     align-items: center;
   }
   
   .about-me .info > img {
-    order: -1;
+    order: -1; /* Move image before text */
     height: 400px;
-    margin-top: 20px;
+    margin-top: var(--spacing-sm);
   }
   
   .about-me .text img {
     position: static;
-    margin: 20px 10px;
+    margin: var(--spacing-sm) var(--spacing-xs);
   }
+  
   .carousel {
-    padding: 20px 20px;
-    position: relative;
+    padding: var(--spacing-sm);
   }
+  
   .carousel img {
     height: 400px;
   }
+  
   .calculator {
-    width: 90%
-    padding: 20px 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;    
+    width: 90%;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-sm);    
   }
+  
   .calculator .calc--info {
     flex-direction: column;
-    padding: 0px 20px;
+    padding: 0 var(--spacing-sm);
   }
+  
   .contact {
-    margin-top: 20px;
+    margin-top: var(--spacing-sm);
   }
+  
   .info-cont p {
     width: 60%;
   }
+  
   .blocK {
-    padding-top: 20px
-    padding-bottom: 20px;
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
   }
 }
 
-/* Mobile Styles */
+/* =============================================================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================================================= */
 @media (max-width: 768px) {
+  /* Show burger menu */
   .burger {
     display: flex;
   }
   
+  /* Slide-in mobile navigation */
   header nav {
     position: fixed;
     top: 0;
-    left: -100%;
+    left: -100%; /* Hidden off-screen */
     width: 70%;
     height: 100vh;
-    background: #B4DFE5;
-    transition: 0.3s;
+    background: var(--color-bg-secondary);
+    transition: var(--transition-fast);
     padding-top: 80px;
   }
   
   header nav.active {
-    left: 0;
+    left: 0; /* Slide in */
   }
   
   header nav ul {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 30px;
-    gap: 20px;
+    padding-left: var(--spacing-md);
+    gap: var(--spacing-sm);
   }
   
   header nav ul li.active::after {
     left: 0;
   }
   
+  /* Hero section mobile layout */
   .hero {
     margin-top: 0;
-    padding-bottom: 50px;
+    padding-bottom: var(--spacing-lg);
     display: flex;
     flex-direction: column;
   }
@@ -539,14 +781,14 @@ input[type=range]::-webkit-slider-thumb {
   .hero img {
     position: static;
     width: 100%;
-    order: -1;
-    margin-bottom: 50px;
+    order: -1; /* Image first on mobile */
+    margin-bottom: var(--spacing-lg);
   }
   
   .hero--info {
     width: 100%;
-    padding-top: 20px;
-    margin-bottom: 20px;
+    padding-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
   }
   
   .hero--info h1 {
@@ -561,13 +803,14 @@ input[type=range]::-webkit-slider-thumb {
     font-size: 14px;
   }
   
+  /* About section mobile */
   .about-me {
     padding-top: 40px;
   }
   
   .about-me h2 {
     font-size: 32px;
-    padding-top: 20px;
+    padding-top: var(--spacing-sm);
   }
   
   .about-me .info {
@@ -581,22 +824,23 @@ input[type=range]::-webkit-slider-thumb {
   }
   
   .about-me p {
-    font-size: 16px;
+    font-size: var(--font-size-base);
   }
   
   .about-me .text img {
     position: static;
-    margin: 20px 0 0 0;
+    margin: var(--spacing-sm) 0 0 0;
     max-width: 100%;
   }
   
+  /* Carousel mobile */
   .carousel {
-    padding: 40px 20px;
+    padding: 40px var(--spacing-sm);
   }
   
   .carousel h2 {
     font-size: 32px;
-    padding-top: 20px;
+    padding-top: var(--spacing-sm);
   }
   
   .carousel img {
@@ -606,11 +850,12 @@ input[type=range]::-webkit-slider-thumb {
   .carousel-control-prev,
   .carousel-control-next {
     position: absolute;
-    padding-top: 10px;
+    padding-top: var(--spacing-xs);
   }
   
+  /* Calculator mobile */
   .calculator {
-    padding: 40px 20px;
+    padding: 40px var(--spacing-sm);
   }
   
   .calculator h2 {
@@ -619,11 +864,11 @@ input[type=range]::-webkit-slider-thumb {
   
   .calculator .calc--info {
     flex-direction: column;
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
   }
   
   .calculator .calc--info .options {
-    padding: 30px 20px;
+    padding: var(--spacing-md) var(--spacing-sm);
   }
   
   .who h4,
@@ -632,6 +877,7 @@ input[type=range]::-webkit-slider-thumb {
     font-size: 20px;
   }
   
+  /* Stack options vertically on mobile */
   .types {
     flex-direction: column;
     gap: 15px;
@@ -647,7 +893,7 @@ input[type=range]::-webkit-slider-thumb {
   .where .info {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: var(--spacing-xs);
   }
   
   .where .info input {
@@ -656,20 +902,23 @@ input[type=range]::-webkit-slider-thumb {
   
   .time .types {
     flex-direction: row;
-    gap: 20px;
+    gap: var(--spacing-sm);
   }
   
   .calculator .calc--info .preview-area {
     max-width: 100%;
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
   }
   
   .calculator .section button {
     width: 100%;
   }
+  
+  /* Contact mobile */
   .contact {
-    margin-top: 20px;
+    margin-top: var(--spacing-sm);
   }
+  
   .info-cont h3 {
     font-size: 28px;
   }
@@ -680,17 +929,20 @@ input[type=range]::-webkit-slider-thumb {
   
   .blocK {
     flex-direction: column;
-    gap: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    gap: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
   }
   
   span,
   label {
-    font-size: 16px;
+    font-size: var(--font-size-base);
   }
 }
 
+/* =============================================================================
+   RESPONSIVE DESIGN - SMALL MOBILE
+   ============================================================================= */
 @media (max-width: 480px) {
   .container {
     padding: 0 15px;
@@ -701,7 +953,7 @@ input[type=range]::-webkit-slider-thumb {
   }
   
   .hero--info h2 {
-    font-size: 16px;
+    font-size: var(--font-size-base);
   }
   
   .about-me h2,
