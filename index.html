@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sofifi's illustration portfolio showcasing visual art, character design, and artwork price calculator">
-  <meta name="keywords" content="illustration, visual art, portfolio, character design, commission">
-  <meta name="author" content="Sofifi">
+  <meta name="description" content="Illustration portfolio showcasing visual art, character design, and artwork price calculator">
+  <meta name="keywords" content="illustration, visual art, portfolio, character design, commission, artwork price calculator">
   
   <!-- Bootstrap CSS for carousel component -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,12 +19,11 @@
 <body>
   <div id="home" class="wrapper">
     <!-- ========================================================================
-         HEADER & NAVIGATION
-         Sticky navigation with mobile burger menu
+         Header abd navigation (Sticky navigation + mobile burger menu)
          ======================================================================== -->
     <header role="banner">
       <div class="container">
-        <!-- Logo / Brand name -->
+        <!-- Logo -->
         <span class="logo" aria-label="Sofifi brand">sofifi</span>
         
         <!-- Mobile burger menu button -->
@@ -64,8 +62,7 @@
     </header>
 
     <!-- ========================================================================
-         HERO SECTION
-         Main landing area with introduction text and hero image
+         Hero section (Main landing area with introduction text and hero image)
          ======================================================================== -->
     <section class="hero container" aria-labelledby="hero-heading">
       <div class="hero--info">
@@ -88,8 +85,7 @@
     </div>
     
     <!-- ========================================================================
-         ABOUT ME SECTION
-         Biography and introduction to the artist
+         About me section (Biography and introduction to the artist)
          ======================================================================== -->
     <section id="about-me" class="container about-me" aria-labelledby="about-heading">
       <h2 id="about-heading">About me</h2>
@@ -127,8 +123,7 @@
     </div>
     
     <!-- ========================================================================
-         MY WORKS SECTION (CAROUSEL)
-         Gallery of artwork samples using Bootstrap carousel
+         My works section (Gallery - Carousel)
          ======================================================================== -->
     <section id="my-works" class="container carousel" aria-labelledby="works-heading">
       <h2 id="works-heading">My Works</h2>
@@ -140,33 +135,37 @@
           <!-- Slide 1 -->
           <div class="carousel-item active" role="listitem">
             <img 
-              src="./static/images/Bakery.png" 
-              class="mx-auto d-block" 
-              alt="Bakery illustration featuring warm colors and cozy atmosphere">
+              src="./static/images/Artwork_1.png" 
+              class="mx-auto d-block"
           </div>
           
           <!-- Slide 2 -->
           <div class="carousel-item" role="listitem">
             <img 
-              src="./static/images/Fly.jpg" 
-              class="mx-auto d-block" 
-              alt="Flying illustration with dreamy sky elements">
+              src="./static/images/Artwork_2.jpg" 
+              class="mx-auto d-block"
           </div>
           
           <!-- Slide 3 -->
           <div class="carousel-item" role="listitem">
             <img 
-              src="./static/images/Sketch.png" 
-              class="mx-auto d-block" 
-              alt="Character sketch showing detailed line work">
+              src="./static/images/Artwork_3.png" 
+              class="mx-auto d-block"
           </div>
           
           <!-- Slide 4 -->
           <div class="carousel-item" role="listitem">
             <img 
-              src="./static/images/Nightmare.png" 
-              class="mx-auto d-block" 
-              alt="Nightmare themed illustration with dark atmospheric tones">
+              src="./static/images/Artwork_4.png" 
+              class="mx-auto d-block"
+          </div>
+        </div>
+      </div>
+          <!-- Slide 5 -->
+          <div class="carousel-item" role="listitem">
+            <img 
+              src="./static/images/Artwork_5.jpeg" 
+              class="mx-auto d-block"
           </div>
         </div>
       </div>
@@ -197,14 +196,13 @@
     </div>
     
     <!-- ========================================================================
-         PRICE CALCULATOR SECTION
-         Interactive tool for estimating artwork commission prices
+         Artwork Price Calculator Section 
          ======================================================================== -->
     <section id="calculator" class="container calculator" aria-labelledby="calculator-heading">
       <h2 id="calculator-heading">Artwork Price Calculator</h2>
       
       <div class="calc--info">
-        <!-- Left column: Calculator options -->
+        <!-- Left side: Calculator options -->
         <div class="options">
           
           <!-- Character selection -->
@@ -296,11 +294,11 @@
             </div>
           </div>
           
-          <!-- Background complexity -->
+          <!-- Background selectins -->
           <div class="where">
             <h4 id="background-label-heading">Background</h4>
             <div class="info" role="group" aria-labelledby="background-label-heading">
-              <label for="background" class="visually-hidden">Background complexity slider</label>
+              <label for="background" class="visually-hidden">Background slider</label>
               <input 
                 type="range" 
                 min="0" 
@@ -316,7 +314,7 @@
             </div>
           </div>
           
-          <!-- Delivery speed -->
+          <!-- Speed -->
           <div class="time">
             <h4 id="time-label">Time</h4>
             <div class="types" role="radiogroup" aria-labelledby="time-label">
@@ -343,7 +341,7 @@
           <!-- Calculate button and result -->
           <div class="section">
             <button 
-              onclick="calculateTotal()"
+              onclick="calculateTotal()" 
               aria-label="Calculate total artwork price">
               Calculate Price
             </button>
@@ -351,7 +349,7 @@
           </div>
         </div>
         
-        <!-- Right column: Visual preview -->
+        <!-- Right side: Visuals -->
         <div class="preview-area" role="img" aria-label="Artwork preview showing selected options">
           <div class="preview-layer">
             <!-- Background layer -->
@@ -419,8 +417,7 @@
     </section>
     
     <!-- ========================================================================
-         CONTACT SECTION
-         Contact information and social media links
+         Contact section
          ======================================================================== -->
     <footer id="contact" class="contact" role="contentinfo">
       <div class="container info-cont">
