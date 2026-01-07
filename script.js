@@ -1,17 +1,8 @@
-/**
- * Portfolio Price Calculator
- * Manages artwork pricing based on characters, background complexity, and delivery speed
- * Uses Module Pattern for encapsulation and data privacy
- * 
- * @author Sofifi
- * @version 2.0
- */
-
 // =============================================================================
-// CONFIGURATION CONSTANTS
+// config constants
 // =============================================================================
 const CONFIG = {
-  // Price configuration for different character types (in dollars)
+  // Price configuration for different character types (in $)
   PRICES: {
     people: 1.00,
     animals: 0.75,
@@ -52,13 +43,13 @@ const CONFIG = {
 };
 
 // =============================================================================
-// PRICE CALCULATOR MODULE (Module Pattern for encapsulation)
+// Price calculator module (Module Pattern for encapsulation)
 // =============================================================================
 const PriceCalculator = (function() {
   'use strict';
   
   // ---------------------------------------------------------------------------
-  // PRIVATE STATE (inaccessible from outside)
+  // Privat state (inaccessible from outside)
   // ---------------------------------------------------------------------------
   
   /**
@@ -79,7 +70,7 @@ const PriceCalculator = (function() {
   const domCache = {};
   
   // ---------------------------------------------------------------------------
-  // PRIVATE UTILITY FUNCTIONS
+  // Privat utility fuctions
   // ---------------------------------------------------------------------------
   
   /**
@@ -215,7 +206,7 @@ const PriceCalculator = (function() {
   }
   
   // ---------------------------------------------------------------------------
-  // PUBLIC API (exposed methods)
+  // Public API (exposed methods)
   // ---------------------------------------------------------------------------
   
   return {
@@ -457,7 +448,7 @@ const PriceCalculator = (function() {
 })();
 
 // =============================================================================
-// NAVIGATION MODULE (handles menu toggle)
+// Navigation Module (handles menu toggle)
 // =============================================================================
 
 /**
@@ -491,7 +482,7 @@ function closeMenu() {
 }
 
 // =============================================================================
-// GLOBAL FUNCTION WRAPPERS (for inline HTML onclick handlers)
+// Global functions wrappers (for inline HTML onclick handlers)
 // =============================================================================
 
 /**
@@ -524,7 +515,7 @@ function updateBackgroundLabel() {
 }
 
 // =============================================================================
-// INITIALIZATION (when DOM is ready)
+// Initialization (when DOM is ready)
 // =============================================================================
 
 // Wait for DOM to be fully loaded before initializing
