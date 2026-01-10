@@ -11,8 +11,7 @@
   --color-accent: #F4976C;         /* Orange - buttons and highlights */
   --color-accent-hover: #fcad7b;   /* Lighter orange for hover states */
   --color-bg-primary: #FBE8A6;     /* Cream yellow - main background */
-  --color-bg-secondary: #B4DFE5;   /* Light blue - header and sections */
-  --color-bg-calculator: #a9e2e7;  /* Slightly darker blue for calculator */
+  --color-bg-secondary: #B4DFE5;   /* Light blue - header and gallery and calculator sections */
   --color-text-light: #FBE8A6;     /* Light text on dark backgrounds */
   
   /* Typography */
@@ -429,7 +428,7 @@ header nav ul li.btn a:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: var(--color-bg-calculator);
+  background-color: var(--color-bg-secondary);
   border-radius: var(--radius-xl);
   border: 2px solid var(--color-primary);
 }
@@ -577,7 +576,7 @@ input[type=range]::-webkit-slider-thumb {
   aspect-ratio: 1 / 1; /* Square container */
   display: flex;     
   border-radius: var(--radius-xl);
-  background-color: var(--color-bg-calculator);
+  background-color: var(--color-bg-secondary);
 }
 
 /* Layered preview images container */
