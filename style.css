@@ -3,7 +3,6 @@
 
 /* =============================================================================
    CSS CUSTOM PROPERTIES (Variables)
-   Centralized design tokens for easy theme modifications
    ============================================================================= */
 :root {
   /* Color Palette */
@@ -64,7 +63,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Include padding and border in element's total width/height */
+  box-sizing: border-box; 
 }
 
 html {
