@@ -398,13 +398,7 @@ const PriceCalculator = (function() {
           });
         }
         
-        // Speed radio button change handlers
-        document.querySelectorAll('input[name="speed"]').forEach(radio => {
-          radio.addEventListener('change', () => {
-            // Recalculate when speed changes
-            this.calculate();
-          });
-        });
+
         
         console.log('Event listeners successfully initialized');
         
