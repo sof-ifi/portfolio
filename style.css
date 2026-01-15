@@ -381,7 +381,7 @@ header nav ul li.btn a:hover {
 .carousel-control-prev,
 .carousel-control-next {
   width: auto;
-  position: relative;
+  position: absolute;
   transform: translateY(-50%);
 }
 
