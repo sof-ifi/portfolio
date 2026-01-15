@@ -217,8 +217,6 @@ const PriceCalculator = (function() {
      * @param {string} type - Character type ('people', 'animals', 'monsters')
      * @param {number} delta - Change amount (+1 or -1)
      * @throws {Error} If type is invalid
-     * @example
-     *   PriceCalculator.updateQuantity('people', 1); // Increase by 1
      */
     updateQuantity: function(type, delta) {
       try {
