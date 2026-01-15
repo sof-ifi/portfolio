@@ -383,6 +383,7 @@ header nav ul li.btn a:hover {
   width: auto;
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
 }
 
 .carousel-control-prev {
