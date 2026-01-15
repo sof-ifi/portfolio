@@ -241,9 +241,8 @@ const PriceCalculator = (function() {
         // Update UI display
         countSpan.innerText = newQty;
         
-        // Refresh preview and recalculate total
+        // Refresh preview 
         this.updateVisuals();
-        this.calculate();
         
       } catch (error) {
         console.error('Error updating quantity:', error.message);
