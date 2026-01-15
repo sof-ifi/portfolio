@@ -1,6 +1,4 @@
-// =============================================================================
-// config constants
-// =============================================================================
+// ----------- configuration constants
 const CONFIG = {
   // Price configuration for different character types (in $)
   PRICES: {
@@ -42,15 +40,15 @@ const CONFIG = {
   }
 };
 
-// =============================================================================
-// Price calculator module (Module Pattern for encapsulation)
-// =============================================================================
+
+// ------------- Price calculator module (Module Pattern for encapsulation)
+
 const PriceCalculator = (function() {
-  'use strict';
+  'use strict'; 
   
-  // ---------------------------------------------------------------------------
+ 
   // Privat state (inaccessible from outside)
-  // ---------------------------------------------------------------------------
+
   
   /**
    * Current quantities for each character type
@@ -69,9 +67,8 @@ const PriceCalculator = (function() {
    */
   const domCache = {};
   
-  // ---------------------------------------------------------------------------
-  // Privat utility fuctions
-  // ---------------------------------------------------------------------------
+  // Privat utility fuctions 
+
   
   /**
    * Caches and returns a DOM element by ID
@@ -205,9 +202,9 @@ const PriceCalculator = (function() {
     return parseInt(speedRadio.value, 10);
   }
   
-  // ---------------------------------------------------------------------------
+ 
   // Public API (exposed methods)
-  // ---------------------------------------------------------------------------
+
   
   return {
     /**
@@ -238,7 +235,7 @@ const PriceCalculator = (function() {
           Math.max(CONFIG.QUANTITIES.MIN, currentQty + delta)
         );
         
-        // Update internal state
+        // Update internal 
         quantities[type] = newQty;
         
         // Update UI display
@@ -250,13 +247,11 @@ const PriceCalculator = (function() {
         
       } catch (error) {
         console.error('Error updating quantity:', error.message);
-        // Fail gracefully - don't break the entire application
       }
     },
     
     /**
      * Calculates and displays total artwork price
-     * Formula: (characters_cost) + background_cost + speed_cost
      * @public
      */
     calculate: function() {
@@ -445,9 +440,9 @@ const PriceCalculator = (function() {
   };
 })();
 
-// =============================================================================
-// Navigation Module (handles menu toggle)
-// =============================================================================
+
+// ------ Navigation Module (handles menu toggle)
+
 
 /**
  * Toggles mobile navigation menu visibility
@@ -479,9 +474,9 @@ function closeMenu() {
   }
 }
 
-// =============================================================================
-// Global functions wrappers (for inline HTML onclick handlers)
-// =============================================================================
+
+// -------- Global functions wrappers (for inline HTML onclick handlers)
+
 
 /**
  * Global wrapper for quantity updates
@@ -512,9 +507,9 @@ function updateBackgroundLabel() {
   PriceCalculator.updateBackgroundLabel();
 }
 
-// =============================================================================
-// Initialization (when DOM is ready)
-// =============================================================================
+
+// ---------- Initialization (when DOM is ready)
+
 
 // Wait for DOM to be fully loaded before initializing
 if (document.readyState === 'loading') {
