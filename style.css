@@ -142,6 +142,9 @@ header .logo {
   flex-direction: column;
   cursor: pointer;
   z-index: var(--z-burger);
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .burger span {
