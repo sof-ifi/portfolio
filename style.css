@@ -365,6 +365,7 @@ header nav ul li.btn a:hover {
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-xl);
   background-color: var(--color-bg-secondary);
+  position: relative;
 }
 
 .carousel img {
