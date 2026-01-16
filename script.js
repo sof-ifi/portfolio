@@ -59,10 +59,16 @@ const PriceCalculator = (function() {
    * @param {boolean} show - Whether to display the image
    */
   function updateImage(elementId, src, show = true) {
-    const img = getElement(elementId);
+    const img = get
+      Element(elementId);
     if (img) {
       img.src = src;
-      img.style.display = show ? "block" : "none";
+        if (show) {
+          img.style.display = "block";
+        } 
+        else {
+          img.style.display = "none";
+        }
     } else {
       console.warn(`Image element not found: ${elementId}`);
     }
