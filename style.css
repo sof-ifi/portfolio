@@ -386,7 +386,7 @@ header nav ul li.btn a:hover {
 .carousel-control-next {
   width: auto;
   position: absolute;
-  padding-top: 49.5%;
+  transform: translateY(-50%);
 }
 
 .carousel-control-prev {
