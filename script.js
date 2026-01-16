@@ -63,12 +63,7 @@ const PriceCalculator = (function() {
       Element(elementId);
     if (img) {
       img.src = src;
-        if (show) {
-          img.style.display = "block";
-        } 
-        else {
-          img.style.display = "none";
-        }
+      img.style.display = show ? "block" : "none"; 
     } else {
       console.warn(`Image element not found: ${elementId}`);
     }
