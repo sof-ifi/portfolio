@@ -250,7 +250,6 @@ const PriceCalculator = (function() {
      * @public
      */
     updateVisuals: function() {
-      try {
         let anyCharacterSelected = false;
         
         // Update background image based on slider value
@@ -292,10 +291,6 @@ const PriceCalculator = (function() {
         
         // Show placeholder if no characters selected
         toggleImage('placeholder-img', !anyCharacterSelected);
-        
-      } catch (error) {
-        console.error('Error updating visuals:', error.message);
-      }
     },
     
     /**
@@ -303,7 +298,6 @@ const PriceCalculator = (function() {
      * @public
      */
     updateBackgroundLabel: function() {
-      try {
         const bgSlider = getElement('background');
         const label = getElement('background-label');
         
@@ -318,10 +312,6 @@ const PriceCalculator = (function() {
         
         // Update preview immediately
         this.updateVisuals();
-        
-      } catch (error) {
-        console.error('Error updating background label:', error.message);
-      }
     },
     
     /**
@@ -330,7 +320,6 @@ const PriceCalculator = (function() {
      * @public
      */
     setupEventListeners: function() {
-      try {
         // Character checkbox change handlers
         document.querySelectorAll('.character-type').forEach(checkbox => {
           checkbox.addEventListener('change', () => {
@@ -354,14 +343,6 @@ const PriceCalculator = (function() {
             this.updateBackgroundLabel();
           });
         }
-        
-
-        
-        console.log('Event listeners successfully initialized');
-        
-      } catch (error) {
-        console.error('Error setting up event listeners:', error.message);
-      }
     },
     
     /**
@@ -371,21 +352,12 @@ const PriceCalculator = (function() {
      * @public
      */
     init: function() {
-      console.log('Initializing Price Calculator...');
-      
-      try {
         // Set up all interactive behaviors
         this.setupEventListeners();
         
         // Set initial visual state
         this.updateVisuals();
         this.updateBackgroundLabel();
-        
-        console.log('Price Calculator initialized successfully');
-        
-      } catch (error) {
-        console.error('Failed to initialize calculator:', error.message);
-      }
     }
   };
 })();
