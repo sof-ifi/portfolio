@@ -26,7 +26,6 @@ const PriceCalculator = (function() {
   
   // Privat utility fuctions 
 
-  
   /**
    * Caches and returns a DOM element by ID
    * Reduces repetitive getElementById calls
@@ -39,16 +38,6 @@ const PriceCalculator = (function() {
       domCache[id] = document.getElementById(id);
     }
     return domCache[id];
-  }
-  
-  /**
-   * Validates if a character type is supported
-   * @private
-   * @param {string} type - Character type to validate
-   * @returns {boolean} True if valid
-   */
-  function isValidType(type) {
-    return CONFIG.VALID_TYPES.includes(type);
   }
   
   /**
