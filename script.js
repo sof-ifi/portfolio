@@ -2,37 +2,24 @@
 
 const PriceCalculator = (function() {
   'use strict'; 
-  
  
-  // Privat state (inaccessible from outside)
+  // Privat spase, inaccessible from outside
 
   
-  /**
-   * Current quantities for each character type
-   * @private
-   */
+  // Current quantities for each character type (private) 
   const quantities = {
     people: 1,
     animals: 1,
     monsters: 1
   };
   
-  /**
-   * Cache for DOM elements to avoid repeated queries
-   * Improves performance by storing references
-   * @private
-   */
+  // Cache for DOM elements to avoid repeated queries, efficiency, better performance (@private)
   const domCache = {};
   
   // Privat utility fuctions 
 
-  /**
-   * Caches and returns a DOM element by ID
-   * Reduces repetitive getElementById calls
-   * @private
-   * @param {string} id - Element ID
-   * @returns {HTMLElement|null} Cached DOM element
-   */
+  
+  // Caches and returns DOM-elements by ID, reduces repetitive "getElementById" calls (private)   
   function getElement(id) {
     if (!domCache[id]) {
       domCache[id] = document.getElementById(id);
@@ -40,12 +27,11 @@ const PriceCalculator = (function() {
     return domCache[id];
   }
   
-  /**
-   * Safely updates an image source and visibility
-   * @private
-   * @param {string} elementId - Image element ID
-   * @param {string} src - Image source path
-   * @param {boolean} show - Whether to display the image
+  /** Update of an images' source and visibility ( private )
+   * as an input function recieves:
+   * elementId - Image element ID (string)
+   * src - Image source path (string)
+   * show - Whether to display the image (boolean)
    */
   function updateImage(elementId, src, show = true) {
     const img = getElement(elementId);
@@ -57,11 +43,7 @@ const PriceCalculator = (function() {
     }
   }
   
-  /**
-   * Hides an image element
-   * @private
-   * @param {string} elementId - Image element ID
-   */
+  // Hides an image element 
   function hideImage(elementId) {
     const img = getElement(elementId);
     if (img) {
@@ -69,12 +51,7 @@ const PriceCalculator = (function() {
     }
   }
   
-  /**
-   * Toggles image visibility
-   * @private
-   * @param {string} elementId - Image element ID
-   * @param {boolean} show - Whether to show the image
-   */
+  // Toggles image visibility   
   function toggleImage(elementId, show) {
     const img = getElement(elementId);
     if (img) {
@@ -82,11 +59,8 @@ const PriceCalculator = (function() {
     }
   }
   
-  /**
-   * Calculates total price for selected characters
+  /** Calculates total price for selected characters
    * Iterates through all character checkboxes and sums their costs
-   * @private
-   * @returns {number} Total character cost
    */
   function calculateCharacterTotal() {
     let total = 0;
@@ -109,11 +83,7 @@ const PriceCalculator = (function() {
     return total;
   }
   
-  /**
-   * Retrieves current background price based on slider value
-   * @private
-   * @returns {number} Background price
-   */
+  // Fetches current background price based on a slider position   
   function getBackgroundPrice() {
     const bgSlider = getElement('background');
     
@@ -132,11 +102,7 @@ const PriceCalculator = (function() {
     return price || 0;
   }
   
-  /**
-   * Retrieves selected speed delivery price
-   * @private
-   * @returns {number} Speed surcharge
-   */
+  // Retrieves selected speed delivery price       
   function getSpeedPrice() {
     const speedRadio = document.querySelector('input[name="speed"]:checked');
     
@@ -149,24 +115,17 @@ const PriceCalculator = (function() {
   }
   
  
-  // Public API (exposed methods)
+  // Public API (exposed methods), 
 
   
   return {
-    /**
-     * Updates quantity for a specific character type
-     * Enforces min/max bounds and refreshes UI
-     * @public
-     * @param {string} type - Character type ('people', 'animals', 'monsters')
-     * @param {number} delta - Change amount (+1 or -1)
-     * @throws {Error} If type is invalid
-     */
+    
+      // Updates quantity for a specific character type (public)
+     // as an input function recieves:
+      // type - Character type ('people', 'animals', 'monsters') (string )
+      // delta - Change amount (+1 or -1) (number/integer)
     updateQuantity: function(type, delta) {
       try {
-        // Validation: Check if type is supported
-        if (!isValidType(type)) {
-          throw new Error(`Invalid character type: ${type}. Must be one of: ${CONFIG.VALID_TYPES.join(', ')}`);
-        }
         
         // Get the count display element
         const countSpan = getElement(`${type}-count`);
@@ -176,6 +135,7 @@ const PriceCalculator = (function() {
         
         // Calculate new quantity within valid range [MIN, MAX]
         const currentQty = quantities[type];
+        // Enforces min/max bounds via nested functions
         const newQty = Math.min(
           CONFIG.QUANTITIES.MAX, 
           Math.max(CONFIG.QUANTITIES.MIN, currentQty + delta)
@@ -195,10 +155,8 @@ const PriceCalculator = (function() {
       }
     },
     
-    /**
-     * Calculates and displays total artwork price
-     * @public
-     */
+    // Calculates and displays total artwork price ( public )
+ 
     calculate: function() {
       try {
         // Sum all pricing components
@@ -233,12 +191,11 @@ const PriceCalculator = (function() {
       }
     },
     
-    /**
-     * Updates all visual preview elements based on current selections
-     * Handles background image, character images, and counters
-     * @public
-     */
+    // Updates all visual preview elements based on current selections
+    // Handles background image, character images, and counters
+
     updateVisuals: function() {
+      try {
         let anyCharacterSelected = false;
         
         // Update background image based on slider value
@@ -280,13 +237,16 @@ const PriceCalculator = (function() {
         
         // Show placeholder if no characters selected
         toggleImage('placeholder-img', !anyCharacterSelected);
+        
+      } catch (error) {
+        console.error('Error updating visuals:', error.message);
+      }
     },
     
-    /**
-     * Updates background label text based on slider position
-     * @public
-     */
+    // Updates background label text based on slider position
+
     updateBackgroundLabel: function() {
+      try {
         const bgSlider = getElement('background');
         const label = getElement('background-label');
         
@@ -301,14 +261,16 @@ const PriceCalculator = (function() {
         
         // Update preview immediately
         this.updateVisuals();
+        
+      } catch (error) {
+        console.error('Error updating background label:', error.message);
+      }
     },
     
-    /**
-     * Sets up all event listeners for interactive elements
-     * Called once during initialization
-     * @public
-     */
+    // Sets up all event listeners for interactive elements, e.g. sliders, buttons, checkboxes (Called once during initialization)
+
     setupEventListeners: function() {
+      try {
         // Character checkbox change handlers
         document.querySelectorAll('.character-type').forEach(checkbox => {
           checkbox.addEventListener('change', () => {
@@ -332,34 +294,44 @@ const PriceCalculator = (function() {
             this.updateBackgroundLabel();
           });
         }
+        
+        console.log('Event listeners successfully initialized');
+        
+      } catch (error) {
+        console.error('Error setting up event listeners:', error.message);
+      }
     },
     
-    /**
-     * Initializes the calculator
-     * Sets up event listeners and initial state
-     * Should be called when DOM is ready
-     * @public
-     */
+    //Initializes the calculator
+    // sets up event listeners and initial state
+    // called when DOM is ready
     init: function() {
+      console.log('Initializing Price Calculator...');
+      
+      try {
         // Set up all interactive behaviors
         this.setupEventListeners();
         
         // Set initial visual state
         this.updateVisuals();
         this.updateBackgroundLabel();
+        
+        console.log('Price Calculator initialized successfully');
+        
+      } catch (error) {
+        console.error('Failed to initialize calculator:', error.message);
+      }
     }
   };
 })();
 
 
-// ------ Navigation Module (handles menu toggle)
+// - - Navigation Module, handles menu toggle 
 
 
-/**
- * Toggles mobile navigation menu visibility
- * Adds/removes 'active' class to trigger CSS animations
- * @global
- */
+// Toggles mobile navigation menu visibility
+ // Adds/removes 'active' class to trigger CSS animations
+
 function toggleMenu() {
   const nav = document.getElementById('nav');
   const burger = document.querySelector('.burger');
@@ -370,11 +342,9 @@ function toggleMenu() {
   }
 }
 
-/**
- * Closes mobile navigation menu
- * Used after clicking a navigation link
- * @global
- */
+// Closes mobile navigation menu
+ // Used when user clicks a navigation link
+
 function closeMenu() {
   const nav = document.getElementById('nav');
   const burger = document.querySelector('.burger');
@@ -386,48 +356,10 @@ function closeMenu() {
 }
 
 
-// -------- Global functions wrappers (for inline HTML onclick handlers)
+// Global functions wrappers (for inline HTML onclick handlers)
 
 
-/**
- * Global wrapper for quantity updates
- * Bridges inline HTML onclick to module method
- * @global
- * @param {string} type - Character type
- * @param {number} delta - Change amount
- */
+// Global wrapper for quantity updates
 function updateQty(type, delta) {
   PriceCalculator.updateQuantity(type, delta);
-}
-
-/**
- * Global wrapper for total calculation
- * Bridges inline HTML onclick to module method
- * @global
- */
-function calculateTotal() {
-  PriceCalculator.calculate();
-}
-
-/**
- * Global wrapper for background label update
- * Bridges inline HTML oninput to module method
- * @global
- */
-function updateBackgroundLabel() {
-  PriceCalculator.updateBackgroundLabel();
-}
-
-
-// ---------- Initialization (when DOM is ready)
-
-
-// Wait for DOM to be fully loaded before initializing
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    PriceCalculator.init();
-  });
-} else {
-  // DOM already loaded
-  PriceCalculator.init();
 }
