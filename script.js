@@ -356,10 +356,37 @@ function closeMenu() {
 }
 
 
-// Global functions wrappers (for inline HTML onclick handlers)
+// -------- Global functions wrappers (for inline HTML onclick handlers)
 
 
 // Global wrapper for quantity updates
+// it connects inline HTML onclick to module method
+
 function updateQty(type, delta) {
   PriceCalculator.updateQuantity(type, delta);
+}
+
+// Global wrapper for total calculation
+
+function calculateTotal() {
+  PriceCalculator.calculate();
+}
+
+//Global wrapper for background label update
+function updateBackgroundLabel() {
+  PriceCalculator.updateBackgroundLabel();
+}
+
+
+// ---------- Initialization (when DOM is ready)
+
+
+// Wait for DOM to be fully loaded before initializing
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    PriceCalculator.init();
+  });
+} else {
+  // DOM already loaded
+  PriceCalculator.init();
 }
